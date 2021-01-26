@@ -7,13 +7,26 @@ import { useSelector } from 'react-redux';
 
 const ProductDetailScreen = props => {
     const productId = props.navigation.getParam('productId');
-    const selectedProduct = useSelector(state => state.products.availableProducts.find(prod => prod.id === productId));
+    const selectedProduct = useSelector(state => 
+        state.products.availableProducts.find(prod => prod.id === productId)
+    );
+    // props.navigation.setParam('')
     return (
         <View>
             <Text>{selectedProduct.title}</Text>
         </View>
     );
+
+    
+};
+
+
+ProductDetailScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerTitle: navigation.getParam('productTitle')
+    };
 }
+
 
 const styles = StyleSheet.create({
 
