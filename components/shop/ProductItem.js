@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button} from "react-native";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ProductItem = props => {
     return(
-        <View style={styles.product}>
+        <TouchableOpacity onPress={props.onViewDetail}>
+            <View style={styles.product}>
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={{ uri: props.image }} />
             </View>
@@ -24,6 +26,7 @@ const ProductItem = props => {
                 />
             </View>
         </View>
+        </TouchableOpacity>
     );
 
 }
